@@ -1,0 +1,34 @@
+//100 Days of RTL challenge//
+
+//ABILASH P//
+
+//Half Adder//
+
+module half_adder_tb ();
+
+reg a_in,b_in;
+wire sum,carry;
+
+half_adder HA (.a_in(a_in), .b_in(b_in), .sum(sum), .carry(carry));
+
+integer i;
+
+initial
+begin
+     a_in = 1'b0;
+     b_in = 1'b0;
+end
+
+initial
+begin
+     for(i=0; i<4; i=i+1)
+     begin
+          {a_in,b_in} = i;
+           #10;
+     end
+end
+
+initial 
+       $monitor ("Input a = %b----Input b = %b----Sum = %b----Carry = %b",a_in,b_in,sum,carry);
+
+endmodule
